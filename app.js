@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
+const queries = require('./queries')
 const port = process.env.PORT || 3001
 
 
 app.get('/', (req, res) => {
- 	res.send('hooray I work!!!!')
+ 	queries.getAll().then(response => res.send(response))
 })
 
 app.listen(port, () => {
